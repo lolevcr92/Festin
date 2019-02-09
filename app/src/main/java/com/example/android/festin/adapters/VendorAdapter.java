@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,15 +23,27 @@ import java.util.ArrayList;
 
 public class VendorAdapter extends ArrayAdapter<Vendor> {
 
-    String mcontrol;
+    private String mcontrol;
+    private ArrayList<Vendor> mvendors;
 
     public VendorAdapter(Activity context, ArrayList<Vendor> vendors, String control) {
         super(context, 0, vendors);
         mcontrol = control;
+        mvendors = vendors;
     }
 
     public void update(ArrayList<Vendor> results){
+        mvendors = new ArrayList<>();
+        mvendors.addAll(results);
+        Log.v("Update ", mvendors.size() + "");
+        notifyDataSetChanged();
+    }
 
+
+
+    @Override
+    public int getCount() {
+        return mvendors.size();
     }
 
     @NonNull
@@ -46,10 +60,10 @@ public class VendorAdapter extends ArrayAdapter<Vendor> {
                 final Vendor currentVendor = getItem(position);
 
                 /*Views setter*/
-                ImageView vendorImage = (ImageView) convertView.findViewById(
+                ImageView vendorImage = convertView.findViewById(
                         R.id.figure_item_image);
-                TextView vendorName = (TextView) convertView.findViewById(R.id.figure_item_text);
-                LinearLayout vendorFigureLayout = (LinearLayout) convertView.findViewById(
+                TextView vendorName =  convertView.findViewById(R.id.figure_item_text);
+                LinearLayout vendorFigureLayout = convertView.findViewById(
                         R.id.item_figure_layout);
 
                 vendorImage.setImageResource(currentVendor.getImageResourceId());
@@ -76,8 +90,8 @@ public class VendorAdapter extends ArrayAdapter<Vendor> {
 
                 final Vendor currentVendorList = getItem(position);
 
-                TextView vendorNameList = (TextView) convertView.findViewById(R.id.list_item_text);
-                LinearLayout vendorListLayout = (LinearLayout) convertView.findViewById(
+                TextView vendorNameList = convertView.findViewById(R.id.list_item_text);
+                LinearLayout vendorListLayout = convertView.findViewById(
                         R.id.item_list_layout);
 
                 vendorNameList.setText(String.valueOf(currentVendorList.getName()));
