@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--ActivityIntro-->
+    <dimen name="title">50sp</dimen>
+    <dimen name="moto">20sp</dimen>
+    <dimen name="char_delay">10</dimen>
+
+    <!--ActivityMarket-->
+    <dimen name="paddingLeft">30dp</dimen>
+    <dimen name="paddingRight">5dp</dimen>
+</resources>

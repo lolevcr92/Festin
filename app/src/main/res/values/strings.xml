@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Festin</string>
+
+    <!--ActivityIntro-->
+    <string name="title">FestiN</string>
+    <string name="moto">Dance.Drink.Feast.</string>
+    <string name="scan">Scan QR code and connect.</string>
+
+    <!--ActivityMarket-->
+    <string name="searchHint">Search food stand</string>
+</resources>
