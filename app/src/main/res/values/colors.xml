@@ -7,4 +7,12 @@
     <color name="white">#FFFFFFFF</color>
     <color name="tabTextColor">#FFFFFFFF</color>
     <color name="tabIndicatorColor">#d81d61</color>
+
+    <!--CardView colors-->
+    <color name="cardViewBackground">#fad9d9</color>
+
+    <!--OrderPreview colors-->
+    <color name="orderPreviewBackground">#aecffd</color>
+    <color name="orderPreviewStroke">#0D67E2</color>
+
 </resources>

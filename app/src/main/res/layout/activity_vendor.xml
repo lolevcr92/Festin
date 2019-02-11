@@ -13,6 +13,7 @@
         android:childDivider="@color/white"
         android:drawSelectorOnTop="true"
         android:groupIndicator="@null"
+        android:layoutDirection="ltr"
         android:id="@+id/list_menu_vendor"></ExpandableListView>
     
     

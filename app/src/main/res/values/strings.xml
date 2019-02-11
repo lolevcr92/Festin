@@ -8,4 +8,20 @@
 
     <!--ActivityMarket-->
     <string name="searchHint">Search food stand</string>
+    <string name="vendorName">Vendor Name</string>
+
+    <!--ActivityVendor-->
+    <string name="productName">Product name</string>
+    <string name="decreaseSign">-</string>
+    <string name="defaultQuantity">1</string>
+    <string name="increaseSign">+</string>
+    <string name="defaultPrice">30 RON</string>
+    <string name="productDescription">Product description and others</string>
+    <string name="addToOrder">Add cart</string>
+
+    <!--ActivityOrderPreview-->
+    <string name="orderHeader">Your order:</string>
+    <string name="orderPreviewTotal">Total: 125.00 RON</string>
+    <string name="sendOrder">Send order</string>
+
 </resources>

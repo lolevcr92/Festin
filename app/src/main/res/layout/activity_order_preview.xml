@@ -3,13 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/order_shape_style"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="#aecffd">
+        android:layout_weight="1">
 
         <TextView
             android:layout_width="wrap_content"
@@ -19,25 +19,24 @@
             android:textColor="@color/colorPrimary"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:text="Your order is:"/>
+            android:text="@string/orderHeader"/>
     </RelativeLayout>
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="7"
+        android:background="@color/white"
         android:id="@+id/order_preview_list"
         android:paddingLeft="10dp"
         android:paddingRight="10dp">
 
     </ListView>
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:background="#aecffd"
         android:paddingBottom="12dp">
 
         <TextView
@@ -45,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_above="@id/send_order_button"
             android:layout_alignParentRight="true"
-            android:text="Total: 125.00 RON"
+            android:text="@string/orderPreviewTotal"
             android:textColor="@color/colorPrimary"
             android:textStyle="bold"
             android:fontFamily="@font/sintony"
@@ -56,7 +55,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Send order"
+            android:text="@string/sendOrder"
             android:textColor="@color/colorPrimary"
             android:textStyle="bold"
             android:fontFamily="@font/sintony"

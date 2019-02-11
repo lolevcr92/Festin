@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.example.android.festin.R;
 import com.example.android.festin.Utils.CdtBroadcastService;
 
+/*To be improved*/
 public class ActivityCountdown extends AppCompatActivity {
     private TextView countdownText;
     private TextView orderIdText;

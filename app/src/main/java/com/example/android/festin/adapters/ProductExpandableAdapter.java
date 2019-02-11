@@ -1,9 +1,6 @@
 package com.example.android.festin.adapters;
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +28,7 @@ public class ProductExpandableAdapter extends BaseExpandableListAdapter {
     private HashMap<String, Boolean> checkIfInitialized = new HashMap<String, Boolean>();
     private TreeMap<String,Product> expandableProducts;
 
+    /*Constructor*/
     public ProductExpandableAdapter(Context context, List<String> listProducts,
                                     TreeMap<String, Product> expandableProducts) {
         this.context = context;
@@ -129,9 +127,6 @@ public class ProductExpandableAdapter extends BaseExpandableListAdapter {
 
             }
         });
-
-//        Animation animation = AnimationUtils.loadAnimation(context, android.R.anim.fade_in);
-//        convertView.startAnimation(animation);
 
         return convertView;
     }

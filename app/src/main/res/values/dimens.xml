@@ -8,4 +8,8 @@
     <!--ActivityMarket-->
     <dimen name="paddingLeft">30dp</dimen>
     <dimen name="paddingRight">5dp</dimen>
+
+    <!--ActivityOrder-->
+    <item name="width_adjustment" format="float" type="dimen">.75</item>
+    <item name="height_adjustment" format="float" type="dimen">.75</item>
 </resources>

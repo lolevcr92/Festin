@@ -1,8 +1,6 @@
 package com.example.android.festin.activities;
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.GridView;
@@ -10,11 +8,8 @@ import android.widget.SearchView;
 
 import com.example.android.festin.R;
 import com.example.android.festin.adapters.VendorAdapter;
-import com.example.android.festin.adapters.ViewPagerAdapter;
 import com.example.android.festin.classes.Product;
 import com.example.android.festin.classes.Vendor;
-import com.example.android.festin.fragments.FragmentFigure;
-import com.example.android.festin.fragments.FragmentList;
 
 import java.util.ArrayList;
 
@@ -30,12 +25,17 @@ public class ActivityMarket extends AppCompatActivity {
         Log.v("TestLog", "onCreate");
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_market);
+
         gridView = findViewById(R.id.icon_grid);
         populateVendors();
-
-        VendorAdapter adapter = new VendorAdapter(this, vendors, "thumbnail");
-
+        VendorAdapter adapter = new VendorAdapter(this, vendors);
         gridView.setAdapter(adapter);
+
+        searchFunctionality();
+    }
+
+    /*Setting up search functionality*/
+    public void searchFunctionality(){
 
         searchView = findViewById(R.id.search_view);
 
@@ -63,20 +63,9 @@ public class ActivityMarket extends AppCompatActivity {
                 return false;
             }
         });
-
     }
 
-    public void fragmentVersion(){
-        TabLayout tabLayout = findViewById( R.id.tablayout );
-        ViewPager viewPager = findViewById( R.id.viewPager );
-        ViewPagerAdapter adapter = new ViewPagerAdapter( getSupportFragmentManager() );
-        adapter.AddFragment( new FragmentFigure(), "Thumb" );
-        adapter.AddFragment( new FragmentList(), "List" );
-
-        viewPager.setAdapter( adapter );
-        tabLayout.setupWithViewPager( viewPager );
-    }
-
+    /*Populating Vendors - just for dev version of the app. To be replaced with data base queries*/
     public void populateVendors(){
         ArrayList<Product> burgerVan = new ArrayList<>();
         burgerVan.add(new Product("Burger Van P1", R.drawable.burgervanp1, 10, "Product 1 description and others"));

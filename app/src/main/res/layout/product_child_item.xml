@@ -16,7 +16,7 @@
         android:layout_marginBottom="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp"
-        app:cardBackgroundColor="#fad9d9"
+        app:cardBackgroundColor="@color/cardViewBackground"
         app:cardCornerRadius="15dp"
         app:cardElevation="7dp">
 
@@ -36,17 +36,23 @@
                     android:layout_height="150dp"
                     android:gravity="center"
                     android:layout_centerInParent="true"
-                    tools:text="Product description and others"
+                    tools:text="@string/productDescription"
                     android:fontFamily="@font/sintony"
                     android:textColor="@color/colorPrimary"
                     android:textStyle="bold"
                     android:textSize="14dp"
                     android:id="@+id/vendor_child_product_description"/>
 
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    tools:text=""/>
+
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Add to order"
+                    android:text="@string/addToOrder"
                     android:gravity="center"
                     android:fontFamily="@font/sintony"
                     android:textColor="@color/colorPrimary"

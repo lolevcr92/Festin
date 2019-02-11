@@ -36,23 +36,26 @@ public class ActivityVendor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vendor);
 
+        /*To be deleted - adjusted when linking to data base*/
         vendorProducts = (ArrayList<Product>) getIntent().getSerializableExtra("Products");
-
-        expandableListView = (ExpandableListView) findViewById(R.id.list_menu_vendor);
-
         products = new TreeMap<>();
         Log.i("From vendor", "before if");
-
         for(int i = 0; i < vendorProducts.size(); ++i){
             String productName = vendorProducts.get(i).getName();
             products.put(productName, vendorProducts.get(i));
         }
 
-//        orderPreview = new ArrayList<String>();
+        setExpandableListView();
 
+        floatingButtonSetUp();
+    }
+
+    /*Setting up expandable list view + adapter*/
+    public void setExpandableListView(){
+        expandableListView = (ExpandableListView) findViewById(R.id.list_menu_vendor);
         listProductNames = new ArrayList<>(products.keySet());
-        expandableListAdapter = new ProductExpandableAdapter(this, listProductNames, products);
 
+        expandableListAdapter = new ProductExpandableAdapter(this, listProductNames, products);
         expandableListView.setAdapter((expandableListAdapter));
 
         expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
@@ -64,8 +67,10 @@ public class ActivityVendor extends AppCompatActivity {
                 lastExpandedPosition  = groupPosition;
             }
         });
+    }
 
-
+    /*Floating button functionality*/
+    public void floatingButtonSetUp(){
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floating_button_vendor);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +79,5 @@ public class ActivityVendor extends AppCompatActivity {
 
             }
         });
-
     }
 }

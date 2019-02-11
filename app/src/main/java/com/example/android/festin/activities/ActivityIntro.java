@@ -39,6 +39,8 @@ public class ActivityIntro extends AppCompatActivity {
     ImageView scanBut;
     TextView infoView;
 
+
+    /*Permission request method, for camera*/
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode) {
@@ -48,6 +50,7 @@ public class ActivityIntro extends AppCompatActivity {
 
                         return;
                     }
+                    /*Try-catch statements for starting the camera*/
                     try {
                         cameraSource.start( cameraPreview.getHolder() );
                     } catch (IOException e) {
@@ -69,6 +72,7 @@ public class ActivityIntro extends AppCompatActivity {
 
     }
 
+    /*Method for initializing intro views*/
     private void initials() {
         titleView = (TextView) findViewById( R.id.title_textView );
         titleView.getPaint().setShader( new LinearGradient( 0, 0, 0, titleView.getLineHeight(),
@@ -97,6 +101,7 @@ public class ActivityIntro extends AppCompatActivity {
         } );
     }
 
+    /*Scanning QR-code method*/
     private void scanningProcess(){
         barcodeDetector = new BarcodeDetector.Builder( this )
                 .setBarcodeFormats( Barcode.QR_CODE )
@@ -140,15 +145,19 @@ public class ActivityIntro extends AppCompatActivity {
             }
         } );
         Log.e( "From Processor ", "end REQUEST" );
+
         barcodeDetector.setProcessor( new Detector.Processor<Barcode>() {
             @Override
             public void release() {
 
             }
 
+            /*Getting detected QR-code and check its value. If gooo*/
             @Override
             public void receiveDetections(Detector.Detections<Barcode> detections) {
                 final SparseArray<Barcode> qrCodes = detections.getDetectedItems();
+
+                /*If condition to be adjusted depending on event*/
                 if(qrCodes.size() != 0)
                 {
                     infoView.post( new Runnable() {
@@ -171,6 +180,7 @@ public class ActivityIntro extends AppCompatActivity {
 
     }
 
+    /*Setting up animated motto. Using TypeWriter class in Utils*/
     private void typeWriterText(){
         motoView = (TypeWriter) findViewById( R.id.moto_textView );
         motoView.setText( "" );
